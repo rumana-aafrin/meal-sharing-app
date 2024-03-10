@@ -64,8 +64,8 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, './public/index.html'),
-      favicon: path.join(__dirname, './public/favicon.ico'),
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
     }),
     new CaseSensitivePathsPlugin(),
     new Dotenv({
