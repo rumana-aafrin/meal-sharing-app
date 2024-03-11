@@ -1,23 +1,12 @@
-import dotenv from 'dotenv';
-dotenv.config();
+require('dotenv/config');
+const path = require('path');
 
-// const path = require('path');
-import path from 'path'
-import { fileURLToPath } from 'url';
-
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin' 
-// const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-import Dotenv from 'dotenv-webpack';
-// const Dotenv = require('dotenv-webpack');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-import HtmlWebpackPlugin
- from 'html-webpack-plugin';
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const outputDirectory = 'dist';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-export default {
+module.exports = {
   entry: ['babel-polyfill', path.join(__dirname, './src/client/index.js')],
   output: {
     path: path.join(__dirname, outputDirectory),
@@ -49,7 +38,7 @@ export default {
     extensions: ['*', '.js', '.jsx'],
   },
   devServer: {
-    static: '/',
+    static: './',
     historyApiFallback: true,
     port: parseInt(process.env.CLIENT_PORT, 10),
     open: process.env.OPEN_BROWSER === 'true' ? true : false,
