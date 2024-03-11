@@ -10,7 +10,7 @@ const router = express.Router();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const buildPath = path.join(__dirname, "../../public");
+const buildPath = path.join(__dirname, "../../dist/client-build");
 const port = process.env.PORT || 3000;
 import cors from "cors";
 
@@ -27,23 +27,23 @@ app.use(cors());
 
 router.use("/api/meals", mealsRouter);
 
-app.get("/future-meals", async (req, res) => {
-    const futureMeals = await knex("meal").where("when", ">", knex.fn.now());
+app.get("/api/future-meals", async (req, res) => {
+    const futureMeals = await knex("meals").where("when", ">", knex.fn.now());
     res.json(futureMeals || []);
 });
 
-app.get("/past-meals", async (req, res) => {
-    const pastMeals = await knex("meal").where('when', '<', knex.raw('NOW()'));
+app.get("/api/past-meals", async (req, res) => {
+    const pastMeals = await knex("meals").where('when', '<', knex.raw('NOW()'));
     res.json(pastMeals || []);
 });
 
-app.get("/all-meals", async (req, res) => {
-    const allMeals = await knex("meal").select("*");
+app.get("/api/all-meals", async (req, res) => {
+    const allMeals = await knex("meals").select("*");
     res.json(allMeals || []);
 });
 
-app.get("/first-meal", async (req, res) => {
-    const firstMeal = await knex("meal").orderBy("id").first();
+app.get("/api/first-meal", async (req, res) => {
+    const firstMeal = await knex("meals").orderBy("id").first();
     if (firstMeal) {
         res.json(firstMeal);
     } else {
@@ -51,8 +51,8 @@ app.get("/first-meal", async (req, res) => {
     }
 });
 
-app.get("/last-meal", async (req, res) => {
-    const lastMeal = await knex("meal").orderBy("id", "desc").first();
+app.get("/api/last-meal", async (req, res) => {
+    const lastMeal = await knex("meals").orderBy("id", "desc").first();
     if (lastMeal) {
         res.json(lastMeal);
     } else {
