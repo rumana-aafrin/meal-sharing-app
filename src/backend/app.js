@@ -2,6 +2,8 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 import mealsRouter from "./api/meals.js";
+import reservationsRouter from "./api/reservations.js";
+import reviewsRouter from "./api/reviews.js";
 import knex from "./database.js"; // Import knex using CommonJS syntax
 
 const app = express();
@@ -28,6 +30,8 @@ app.use(cors());
 app.use(router);
 
 router.use("/api/meals", mealsRouter);
+router.use("/api/reservations", reservationsRouter);
+router.use("/api/reviews", reviewsRouter);
 
 router.get("/future-meals", async (req, res) => {
     const futureMeals = await knex("meal").where("when", ">", knex.fn.now());
