@@ -5,7 +5,7 @@ import knex from "../database.js";
 router.get("/", async (request, response) => {
   try {
     // knex syntax for selecting things. Look up the documentation for knex for further info
-    const titles = await knex("meal").select("title");
+    const titles = await knex("meal").select("title", "description", "price");
     response.json(titles);
   } catch (error) {
     throw error;
@@ -88,7 +88,7 @@ router.get("/", async (request, response) => {
   router.get("/", async (req, res) => {
     try {
       // knex syntax for selecting things. Look up the documentation for knex for further info
-      const titles = await knex("meal").select("title");
+      const titles = await knex("meal").select("title", "description", "price");
       response.json(titles);
       let meals = knex("meal");
   
