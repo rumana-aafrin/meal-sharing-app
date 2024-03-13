@@ -1,1 +1,1 @@
-<img src="./public/MealSharingPresentation.mp4">
+<img src="../public/MealSharingPresentation.mp4">
