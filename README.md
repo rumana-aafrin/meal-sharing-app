@@ -1,5 +1,4 @@
 <img src="./public/MealSharingPresentation.mp4">
-=======
 <h1> Meal Sharing Project</h1>
 
 ## Overview
