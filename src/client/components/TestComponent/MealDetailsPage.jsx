@@ -8,7 +8,7 @@ const MealDetailsPage = () => {
     phoneNumber: "",
     name: "",
     email: "",
-    number_of_guests: 1 
+    number_of_guests: "" 
   });
 
   const handleInputChange = (e) => {
@@ -66,6 +66,13 @@ const MealDetailsPage = () => {
           name="email"
           placeholder="Email"
           value={reservationData.email}
+          onChange={handleInputChange}
+        />
+        <input
+          type="number"
+          name="number_of_guests"
+          placeholder="Number of Guests"
+          value={reservationData.number_of_guests}
           onChange={handleInputChange}
         />
         <button type="submit">Book Seat</button>
