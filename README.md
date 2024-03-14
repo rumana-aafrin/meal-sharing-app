@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <img src="./public/MealSharingPresentation.mp4">
 =======
 # Meal Sharing Project
