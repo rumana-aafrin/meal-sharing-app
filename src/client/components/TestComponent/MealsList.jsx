@@ -16,6 +16,7 @@ const MealsList = () => {
   return (
     <div className="containerList">
       <div className="titleContainer">
+        <img src= "../public/cover-image.webp" />
         <h2>Meals List</h2>
         <h4>Enjoy your favorite dishes</h4>
       </div>

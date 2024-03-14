@@ -1,3 +1,12 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(237, 255, 164, 0.527); /* Apply background color to the entire document */
+}
+img{
+  width:100%;
+}
 .meals-grid {
   display: grid;
   gap: 20px;
@@ -39,4 +48,5 @@
 .titleContainer h4 {
   font-size: 18px;
   color: #666;
+  
 }
