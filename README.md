@@ -17,7 +17,7 @@ The Meal Sharing Project is a web application that allows users to discover, sha
 
 - **Frontend:** React Framework, CSS3, JavaScript (React.js)
 - **Backend:** Node.js, Express.js
-- **Database:** MongoDB
+- **Database:** MySql
 
 ## Getting Started
 
